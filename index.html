@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Experience Snapshot</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 2rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 0.5rem 0;
+        }
+        label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .timer {
+            text-align: center;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .reminder {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-left: 4px solid #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Experience Snapshot</h1>
+        <div class="timer">Time Limit: 2 minutes maximum per check-in</div>
+
+        <div class="section">
+            <h2>Date & Time</h2>
+            <input type="text" placeholder="Date" />
+            <input type="text" placeholder="Time" />
+        </div>
+
+        <div class="section">
+            <h2>Quick Physical Check</h2>
+            <input type="text" placeholder="What surfaces can you feel touching your body right now?" />
+            <div class="checkbox-group">
+                <label><input type="radio" name="temperature" /> Cool</label>
+                <label><input type="radio" name="temperature" /> Neutral</label>
+                <label><input type="radio" name="temperature" /> Warm</label>
+            </div>
+            <div class="checkbox-group">
+                <label><input type="radio" name="pain" /> Pain: Yes</label>
+                <label><input type="radio" name="pain" /> Pain: No</label>
+            </div>
+            <input type="text" placeholder="Pain Location (if any)" />
+        </div>
+
+        <div class="section">
+            <h2>Current Situation</h2>
+            <input type="text" placeholder="I am currently..." />
+        </div>
+
+        <div class="section">
+            <h2>External Demands Scale</h2>
+            <div class="checkbox-group">
+                <label><input type="radio" name="demands" /> Level 1 - Can easily have a conversation</label>
+                <label><input type="radio" name="demands" /> Level 2 - Need to pause conversation occasionally</label>
+                <label><input type="radio" name="demands" /> Level 3 - Cannot maintain a conversation</label>
+                <label><input type="radio" name="demands" /> Level 4 - Need to block out distractions</label>
+                <label><input type="radio" name="demands" /> Level 5 - Requires all attention</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Environment Facts</h2>
+            <div class="checkbox-group">
+                <label><input type="checkbox" /> Indoors</label>
+                <label><input type="checkbox" /> Outdoors</label>
+                <label><input type="checkbox" /> Private space</label>
+                <label><input type="checkbox" /> Public space</label>
+                <label><input type="checkbox" /> Moving</label>
+                <label><input type="checkbox" /> Stationary</label>
+            </div>
+            
+            <h3>Sound Facts</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" /> Can easily hear whispers</label>
+                <label><input type="checkbox" /> Normal conversation volume</label>
+                <label><input type="checkbox" /> Need to raise voice</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Task Data Points</h2>
+            <div class="checkbox-group">
+                <label><input type="radio" name="taskStatus" /> Starting (first 5 minutes)</label>
+                <label><input type="radio" name="taskStatus" /> Middle</label>
+                <label><input type="radio" name="taskStatus" /> Wrapping up (last 5 minutes)</label>
+                <label><input type="radio" name="taskStatus" /> Between tasks</label>
+            </div>
+            <input type="text" placeholder="Time spent on current task (minutes)" />
+        </div>
+
+        <div class="section">
+            <h2>Schedule Check</h2>
+            <input type="text" placeholder="Last scheduled item" />
+            <div class="checkbox-group">
+                <label><input type="radio" name="lastTime" /> <1 hr ago</label>
+                <label><input type="radio" name="lastTime" /> 1-3 hrs ago</label>
+                <label><input type="radio" name="lastTime" /> >3 hrs ago</label>
+            </div>
+            
+            <input type="text" placeholder="Next scheduled item" />
+            <div class="checkbox-group">
+                <label><input type="radio" name="nextTime" /> <1 hr</label>
+                <label><input type="radio" name="nextTime" /> 1-3 hrs</label>
+                <label><input type="radio" name="nextTime" /> >3 hrs</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Body Maintenance Data</h2>
+            <div class="checkbox-group">
+                <label><input type="checkbox" /> Water within reach</label>
+                <label><input type="checkbox" /> Food within reach</label>
+                <label><input type="checkbox" /> Been sitting/standing >30 mins</label>
+                <label><input type="checkbox" /> Screen time in last hour</label>
+                <label><input type="checkbox" /> Bathroom need</label>
+                <label><input type="checkbox" /> Temperature adjustment needed</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Logic Mind Observations</h2>
+            <input type="text" placeholder="What pattern or error is your analytical mind noticing?" />
+        </div>
+
+        <div class="section">
+            <h2>Optional Context Layer</h2>
+            <div class="checkbox-group">
+                <label><input type="radio" name="energy" /> Energy: Low</label>
+                <label><input type="radio" name="energy" /> Energy: Medium</label>
+                <label><input type="radio" name="energy" /> Energy: High</label>
+            </div>
+            
+            <div class="checkbox-group">
+                <label><input type="radio" name="focus" /> Focus: Scattered</label>
+                <label><input type="radio" name="focus" /> Focus: Neutral</label>
+                <label><input type="radio" name="focus" /> Focus: Sharp</label>
+            </div>
+            
+            <div class="checkbox-group">
+                <label><input type="radio" name="painLevel" /> Pain: None</label>
+                <label><input type="radio" name="painLevel" /> Pain: Background</label>
+                <label><input type="radio" name="painLevel" /> Pain: Prominent</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>End of Day Single Data Point</h2>
+            <input type="text" placeholder="One objective fact about today" />
+        </div>
+
+        <div class="reminder">
+            <strong>Remember:</strong>
+            <ul>
+                <li>Use timer - 2 minutes maximum</li>
+                <li>Skip sections if needed</li>
+                <li>Facts over analysis</li>
+                <li>No right/wrong responses</li>
+                <li>Patterns will emerge naturally over time</li>
+                <li>This is data collection, not performance</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
