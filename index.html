@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Experience Snapshot</title>
     <style>
-        /* Previous styles remain the same */
+        /* All previous styles remain exactly the same */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -65,7 +65,6 @@
             margin-top: 2rem;
             border-left: 4px solid #2ecc71;
         }
-        /* New styles for buttons */
         .button-group {
             display: flex;
             gap: 1rem;
@@ -118,7 +117,6 @@
         <div class="timer">Time Limit: 2 minutes maximum per check-in</div>
 
         <form id="snapshotForm">
-            <!-- Previous form sections remain the same -->
             <div class="section">
                 <h2>Date & Time</h2>
                 <input type="text" name="date" placeholder="Date" />
@@ -140,8 +138,111 @@
                 <input type="text" name="painLocation" placeholder="Pain Location (if any)" />
             </div>
 
-            <!-- Add name attributes to all other inputs for form submission -->
-            <!-- ... rest of the form sections ... -->
+            <div class="section">
+                <h2>Current Situation</h2>
+                <input type="text" name="currentSituation" placeholder="I am currently..." />
+            </div>
+
+            <div class="section">
+                <h2>External Demands Scale</h2>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="demands" value="level1" /> Level 1 - Can easily have a conversation</label>
+                    <label><input type="radio" name="demands" value="level2" /> Level 2 - Need to pause conversation occasionally</label>
+                    <label><input type="radio" name="demands" value="level3" /> Level 3 - Cannot maintain a conversation</label>
+                    <label><input type="radio" name="demands" value="level4" /> Level 4 - Need to block out distractions</label>
+                    <label><input type="radio" name="demands" value="level5" /> Level 5 - Requires all attention</label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Environment Facts</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="environment_indoors" /> Indoors</label>
+                    <label><input type="checkbox" name="environment_outdoors" /> Outdoors</label>
+                    <label><input type="checkbox" name="environment_private" /> Private space</label>
+                    <label><input type="checkbox" name="environment_public" /> Public space</label>
+                    <label><input type="checkbox" name="environment_moving" /> Moving</label>
+                    <label><input type="checkbox" name="environment_stationary" /> Stationary</label>
+                </div>
+                
+                <h3>Sound Facts</h3>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="sound_whispers" /> Can easily hear whispers</label>
+                    <label><input type="checkbox" name="sound_normal" /> Normal conversation volume</label>
+                    <label><input type="checkbox" name="sound_loud" /> Need to raise voice</label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Task Data Points</h2>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="taskStatus" value="starting" /> Starting (first 5 minutes)</label>
+                    <label><input type="radio" name="taskStatus" value="middle" /> Middle</label>
+                    <label><input type="radio" name="taskStatus" value="wrapping" /> Wrapping up (last 5 minutes)</label>
+                    <label><input type="radio" name="taskStatus" value="between" /> Between tasks</label>
+                </div>
+                <input type="text" name="taskTime" placeholder="Time spent on current task (minutes)" />
+            </div>
+
+            <div class="section">
+                <h2>Schedule Check</h2>
+                <input type="text" name="lastScheduledItem" placeholder="Last scheduled item" />
+                <div class="checkbox-group">
+                    <label><input type="radio" name="lastTime" value="less1" /> <1 hr ago</label>
+                    <label><input type="radio" name="lastTime" value="1to3" /> 1-3 hrs ago</label>
+                    <label><input type="radio" name="lastTime" value="more3" /> >3 hrs ago</label>
+                </div>
+                
+                <input type="text" name="nextScheduledItem" placeholder="Next scheduled item" />
+                <div class="checkbox-group">
+                    <label><input type="radio" name="nextTime" value="less1" /> <1 hr</label>
+                    <label><input type="radio" name="nextTime" value="1to3" /> 1-3 hrs</label>
+                    <label><input type="radio" name="nextTime" value="more3" /> >3 hrs</label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Body Maintenance Data</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="maintenance_water" /> Water within reach</label>
+                    <label><input type="checkbox" name="maintenance_food" /> Food within reach</label>
+                    <label><input type="checkbox" name="maintenance_sitting" /> Been sitting/standing >30 mins</label>
+                    <label><input type="checkbox" name="maintenance_screen" /> Screen time in last hour</label>
+                    <label><input type="checkbox" name="maintenance_bathroom" /> Bathroom need</label>
+                    <label><input type="checkbox" name="maintenance_temperature" /> Temperature adjustment needed</label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Logic Mind Observations</h2>
+                <input type="text" name="logicObservation" placeholder="What pattern or error is your analytical mind noticing?" />
+            </div>
+
+            <div class="section">
+                <h2>Optional Context Layer</h2>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="energy" value="low" /> Energy: Low</label>
+                    <label><input type="radio" name="energy" value="medium" /> Energy: Medium</label>
+                    <label><input type="radio" name="energy" value="high" /> Energy: High</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <label><input type="radio" name="focus" value="scattered" /> Focus: Scattered</label>
+                    <label><input type="radio" name="focus" value="neutral" /> Focus: Neutral</label>
+                    <label><input type="radio" name="focus" value="sharp" /> Focus: Sharp</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <label><input type="radio" name="painLevel" value="none" /> Pain: None</label>
+                    <label><input type="radio" name="painLevel" value="background" /> Pain: Background</label>
+                    <label><input type="radio" name="painLevel" value="prominent" /> Pain: Prominent</label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>End of Day Single Data Point</h2>
+                <input type="text" name="dailyFact" placeholder="One objective fact about today" />
+            </div>
 
             <div class="button-group">
                 <button type="submit" class="submit-btn">Save Entry</button>
@@ -207,7 +308,9 @@
                     <p><strong>${new Date(entry.date).toLocaleString()}</strong></p>
                     <p>Date: ${entry.data.date}</p>
                     <p>Time: ${entry.data.time}</p>
-                    <!-- Add more fields as needed -->
+                    <p>Current Situation: ${entry.data.currentSituation}</p>
+                    <p>Energy Level: ${entry.data.energy}</p>
+                    <p>Focus Level: ${entry.data.focus}</p>
                 </div>
             `).join('') : '<p>No entries yet</p>';
         }
