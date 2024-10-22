@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Experience Snapshot</title>
     <style>
-        /* All previous styles remain exactly the same */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -20,14 +19,16 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        h1 {
+        h1, h2, h3 {
             color: #2c3e50;
-            text-align: center;
-            margin-bottom: 2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
         }
-        h2 {
-            color: #34495e;
-            margin-top: 2rem;
+        .time-allocation {
+            color: #666;
+            font-style: italic;
+            margin-left: 5px;
+            font-size: 0.9em;
         }
         .section {
             margin-bottom: 2rem;
@@ -53,11 +54,26 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+        .example {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 0.5rem;
+        }
         .timer {
             text-align: center;
             color: #e74c3c;
             font-weight: bold;
             margin-bottom: 1rem;
+            padding: 1rem;
+            background: #fff3f3;
+            border-radius: 4px;
+        }
+        .suggested-times {
+            background: #f0f8ff;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
         }
         .reminder {
             background: #f8f9fa;
@@ -109,22 +125,31 @@
             background-color: #d4edda;
             color: #155724;
         }
+        .divider {
+            margin: 2rem 0;
+            border-top: 2px solid #eee;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Daily Experience Snapshot</h1>
-        <div class="timer">Time Limit: 2 minutes maximum per check-in</div>
+        <h1>Adapted Daily Experience Snapshot</h1>
+        <div class="timer">
+            <strong>Time Limit</strong>: Set a timer for 2 minutes maximum per check-in.<br>
+            This is a snapshot, not an analysis.
+        </div>
 
         <form id="snapshotForm">
             <div class="section">
-                <h2>Date & Time</h2>
-                <input type="text" name="date" placeholder="Date" />
-                <input type="text" name="time" placeholder="Time" />
+                <h2>Basic Information</h2>
+                <div class="checkbox-group">
+                    <input type="text" name="date" placeholder="Date" />
+                    <input type="text" name="time" placeholder="Time (AM/PM)" />
+                </div>
             </div>
 
             <div class="section">
-                <h2>Quick Physical Check</h2>
+                <h2>Quick Physical Check <span class="time-allocation">(10 seconds)</span></h2>
                 <input type="text" name="surfaces" placeholder="What surfaces can you feel touching your body right now?" />
                 <div class="checkbox-group">
                     <label><input type="radio" name="temperature" value="cool" /> Cool</label>
@@ -139,23 +164,27 @@
             </div>
 
             <div class="section">
-                <h2>Current Situation</h2>
+                <h2>Current Situation <span class="time-allocation">(20 seconds)</span></h2>
                 <input type="text" name="currentSituation" placeholder="I am currently..." />
-            </div>
-
-            <div class="section">
-                <h2>External Demands Scale</h2>
-                <div class="checkbox-group">
-                    <label><input type="radio" name="demands" value="level1" /> Level 1 - Can easily have a conversation</label>
-                    <label><input type="radio" name="demands" value="level2" /> Level 2 - Need to pause conversation occasionally</label>
-                    <label><input type="radio" name="demands" value="level3" /> Level 3 - Cannot maintain a conversation</label>
-                    <label><input type="radio" name="demands" value="level4" /> Level 4 - Need to block out distractions</label>
-                    <label><input type="radio" name="demands" value="level5" /> Level 5 - Requires all attention</label>
+                <div class="example">
+                    Example: "typing on computer", "sitting in meeting", "eating lunch"
                 </div>
             </div>
 
             <div class="section">
-                <h2>Environment Facts</h2>
+                <h2>External Demands Scale <span class="time-allocation">(20 seconds)</span></h2>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="demands" value="level1" /> Level 1 - Can easily have a conversation while doing this</label>
+                    <label><input type="radio" name="demands" value="level2" /> Level 2 - Need to pause conversation occasionally to focus</label>
+                    <label><input type="radio" name="demands" value="level3" /> Level 3 - Cannot maintain a conversation during this</label>
+                    <label><input type="radio" name="demands" value="level4" /> Level 4 - Need to actively block out distractions</label>
+                    <label><input type="radio" name="demands" value="level5" /> Level 5 - Requires all available attention</label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Environment Facts <span class="time-allocation">(15 seconds)</span></h2>
+                <h3>Location:</h3>
                 <div class="checkbox-group">
                     <label><input type="checkbox" name="environment_indoors" /> Indoors</label>
                     <label><input type="checkbox" name="environment_outdoors" /> Outdoors</label>
@@ -165,16 +194,17 @@
                     <label><input type="checkbox" name="environment_stationary" /> Stationary</label>
                 </div>
                 
-                <h3>Sound Facts</h3>
+                <h3>Sound Facts:</h3>
                 <div class="checkbox-group">
                     <label><input type="checkbox" name="sound_whispers" /> Can easily hear whispers</label>
                     <label><input type="checkbox" name="sound_normal" /> Normal conversation volume</label>
-                    <label><input type="checkbox" name="sound_loud" /> Need to raise voice</label>
+                    <label><input type="checkbox" name="sound_loud" /> Need to raise voice to be heard</label>
                 </div>
             </div>
 
             <div class="section">
-                <h2>Task Data Points</h2>
+                <h2>Task Data Points <span class="time-allocation">(15 seconds)</span></h2>
+                <h3>Current Task Status:</h3>
                 <div class="checkbox-group">
                     <label><input type="radio" name="taskStatus" value="starting" /> Starting (first 5 minutes)</label>
                     <label><input type="radio" name="taskStatus" value="middle" /> Middle</label>
@@ -185,7 +215,7 @@
             </div>
 
             <div class="section">
-                <h2>Schedule Check</h2>
+                <h2>Schedule Check <span class="time-allocation">(15 seconds)</span></h2>
                 <input type="text" name="lastScheduledItem" placeholder="Last scheduled item" />
                 <div class="checkbox-group">
                     <label><input type="radio" name="lastTime" value="less1" /> <1 hr ago</label>
@@ -202,11 +232,11 @@
             </div>
 
             <div class="section">
-                <h2>Body Maintenance Data</h2>
+                <h2>Body Maintenance Data <span class="time-allocation">(15 seconds)</span></h2>
                 <div class="checkbox-group">
                     <label><input type="checkbox" name="maintenance_water" /> Water within reach</label>
                     <label><input type="checkbox" name="maintenance_food" /> Food within reach</label>
-                    <label><input type="checkbox" name="maintenance_sitting" /> Been sitting/standing >30 mins</label>
+                    <label><input type="checkbox" name="maintenance_sitting" /> Been sitting/standing in same position >30 mins</label>
                     <label><input type="checkbox" name="maintenance_screen" /> Screen time in last hour</label>
                     <label><input type="checkbox" name="maintenance_bathroom" /> Bathroom need</label>
                     <label><input type="checkbox" name="maintenance_temperature" /> Temperature adjustment needed</label>
@@ -214,12 +244,16 @@
             </div>
 
             <div class="section">
-                <h2>Logic Mind Observations</h2>
+                <h2>Logic Mind Observations <span class="time-allocation">(10 seconds)</span></h2>
                 <input type="text" name="logicObservation" placeholder="What pattern or error is your analytical mind noticing?" />
+                <div class="example">
+                    (This space welcomes your pattern-recognition skills)
+                </div>
             </div>
 
             <div class="section">
                 <h2>Optional Context Layer</h2>
+                <div class="example">If you have extra time within the 2-minute limit:</div>
                 <div class="checkbox-group">
                     <label><input type="radio" name="energy" value="low" /> Energy: Low</label>
                     <label><input type="radio" name="energy" value="medium" /> Energy: Medium</label>
@@ -241,7 +275,32 @@
 
             <div class="section">
                 <h2>End of Day Single Data Point</h2>
+                <div class="example">(Optional)</div>
                 <input type="text" name="dailyFact" placeholder="One objective fact about today" />
+                <div class="example">
+                    Example: "Attended three meetings" or "Took medication at 2pm"
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2>Suggested Check-in Times</h2>
+                <ol>
+                    <li>Morning routine completion</li>
+                    <li>Mid-day transition</li>
+                    <li>End of structured activities</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Tool Use Notes</h2>
+                <ul>
+                    <li>Set alarms for consistent times</li>
+                    <li>Keep accessible (phone/paper)</li>
+                    <li>Check boxes preferred over written answers for speed</li>
+                    <li>Can be used partially - any data is useful data</li>
+                </ul>
             </div>
 
             <div class="button-group">
@@ -287,61 +346,4 @@
             };
             
             // Save to local storage
-            entries.push(entry);
-            localStorage.setItem('snapshotEntries', JSON.stringify(entries));
-            
-            // Show success message
-            showMessage('Entry saved successfully!', 'success');
-            
-            // Update entries list
-            displayEntries();
-            
-            // Optional: Reset form
-            this.reset();
-        });
-
-        // Display entries
-        function displayEntries() {
-            const entriesDiv = document.getElementById('entries');
-            entriesDiv.innerHTML = entries.length ? entries.map(entry => `
-                <div class="entry">
-                    <p><strong>${new Date(entry.date).toLocaleString()}</strong></p>
-                    <p>Date: ${entry.data.date}</p>
-                    <p>Time: ${entry.data.time}</p>
-                    <p>Current Situation: ${entry.data.currentSituation}</p>
-                    <p>Energy Level: ${entry.data.energy}</p>
-                    <p>Focus Level: ${entry.data.focus}</p>
-                </div>
-            `).join('') : '<p>No entries yet</p>';
-        }
-
-        // Export entries
-        function exportEntries() {
-            const dataStr = JSON.stringify(entries, null, 2);
-            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
-            
-            const exportFileDefaultName = 'snapshot-entries.json';
-            
-            const linkElement = document.createElement('a');
-            linkElement.setAttribute('href', dataUri);
-            linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click();
-        }
-
-        // Show message
-        function showMessage(text, type) {
-            const messageDiv = document.getElementById('message');
-            messageDiv.textContent = text;
-            messageDiv.className = `message ${type}`;
-            messageDiv.style.display = 'block';
-            
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 3000);
-        }
-
-        // Initial display of entries
-        displayEntries();
-    </script>
-</body>
-</html>
+            entries.push(entry
